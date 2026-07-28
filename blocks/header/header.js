@@ -125,21 +125,37 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['utility', 'brand', 'sections', 'tools'];
+  const classes = ['corporate', 'breadcrumb', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  // corporate bar: 3M logo (left) + region selector (right)
+  const navCorporate = nav.querySelector('.nav-corporate');
+  if (navCorporate) {
+    const brandLink = navCorporate.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      const container = brandLink.closest('.button-container');
+      if (container) container.className = '';
+    }
+    const paras = navCorporate.querySelectorAll('p');
+    if (paras[0]) paras[0].classList.add('nav-logo');
+    if (paras[1]) paras[1].classList.add('nav-region');
   }
 
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) decorateSocialIcons(navTools.querySelector('ul') || navTools);
+
+  // group breadcrumb + sections + tools into a lower band (carries the hashed-lines bg)
+  const lower = document.createElement('div');
+  lower.className = 'nav-lower';
+  ['.nav-breadcrumb', '.nav-sections', '.nav-tools'].forEach((sel) => {
+    const el = nav.querySelector(sel);
+    if (el) lower.append(el);
+  });
+  nav.append(lower);
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {

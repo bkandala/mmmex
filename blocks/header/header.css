@@ -7,84 +7,17 @@ header .nav-wrapper {
   border-bottom: 1px solid #f2f2f2;
 }
 
-/* utility bar (3M United States | 3M News Center | 3M Stories) — hidden on mobile, shown on desktop */
-header nav .nav-utility {
-  display: none;
-  visibility: hidden;
-}
-
 header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+    'hamburger corporate' var(--nav-height)
+    'lower lower' auto / auto 1fr;
   align-items: center;
-  gap: 0 24px;
   margin: auto;
   max-width: 1248px;
-  height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
-}
-
-header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
-  overflow-y: auto;
-  min-height: 100dvh;
-}
-
-@media (width >= 900px) {
-  header .nav-wrapper {
-    position: relative;
-  }
-
-  header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: start;
-    gap: 0 32px;
-    max-width: 1200px;
-    padding: 0 32px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
-
-  /* utility bar: full-width strip above the main header row */
-  header nav .nav-utility {
-    display: block;
-    visibility: visible;
-    order: -1;
-    flex: 0 0 100%;
-    margin: 0 -32px 12px;
-    padding: 8px 32px;
-    border-bottom: 1px solid #f2f2f2;
-  }
-
-  header nav .nav-utility ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 14px;
-  }
-
-  header nav .nav-utility a:any-link {
-    color: #4b4b4b;
-  }
-
-  header nav .nav-utility a:hover {
-    color: #000;
-    text-decoration: underline;
-  }
 }
 
 header nav p {
@@ -94,6 +27,37 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+}
+
+/* corporate bar: 3M logo (left) + region selector (right) */
+header nav .nav-corporate {
+  grid-area: corporate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header nav .nav-corporate .nav-logo img {
+  width: 90px;
+  height: auto;
+  display: block;
+}
+
+header nav .nav-region a:any-link {
+  color: #4b4b4b;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+header nav .nav-region a:hover {
+  color: #000;
+}
+
+/* lower band — carries the repeating hashed-lines background */
+header nav .nav-lower {
+  grid-area: lower;
 }
 
 /* hamburger */
@@ -124,198 +88,62 @@ header nav .nav-hamburger-icon::after {
   display: block;
   position: relative;
   width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentcolor;
 }
 
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
-  background: currentcolor;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon,
-header nav[aria-expanded='false'] .nav-hamburger-icon::before,
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  height: 2px;
-  border-radius: 2px;
-  background: currentcolor;
-}
-
-header nav[aria-expanded='false'] .nav-hamburger-icon::before {
+header nav .nav-hamburger-icon::before {
   top: -6px;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
+header nav .nav-hamburger-icon::after {
   top: 6px;
 }
 
-header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 22px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::before,
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: 3px;
-  left: 1px;
-  transform: rotate(45deg);
-  transform-origin: 2px 1px;
-  width: 24px;
-  height: 2px;
-  border-radius: 2px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
-  bottom: 3px;
-  transform: rotate(-45deg);
-}
-
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-/* brand */
-header .nav-brand {
-  grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
-  line-height: 1;
-}
-
-header nav .nav-brand img {
-  width: 90px;
-  height: auto;
-}
-
-/* sections */
-header nav .nav-sections {
-  grid-area: sections;
-  flex: 1 1 auto;
-  display: none;
-  visibility: hidden;
-}
-
-header nav[aria-expanded='true'] .nav-sections {
-  display: block;
-  visibility: visible;
-  align-self: start;
-}
-
-header nav .nav-sections ul {
+/* breadcrumb (3M United States | 3M News Center | 3M Stories) */
+header nav .nav-breadcrumb ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 12px 0 8px;
   list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: 14px;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 500;
+header nav .nav-breadcrumb a:any-link {
+  color: #4b4b4b;
 }
 
-header nav .nav-sections ul > li > ul {
-  margin-top: 0;
+header nav .nav-breadcrumb a:hover {
+  color: #000;
+  text-decoration: underline;
 }
 
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 400;
-}
-
-@media (width >= 900px) {
-  header nav .nav-sections {
-    display: block;
-    visibility: visible;
-    white-space: nowrap;
-  }
-
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-  }
-
-  header nav .nav-sections .nav-drop {
-    position: relative;
-    padding-right: 16px;
-    cursor: pointer;
-  }
-
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0.5em;
-    right: 2px;
-    transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.5em;
-    transform: rotate(315deg);
-  }
-
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
-    position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
-    white-space: initial;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
-  }
-}
-
-/* tools */
-header nav .nav-tools {
-  grid-area: tools;
-}
-
-/* ===== 3M News Center theme ===== */
+/* sections: News Center heading + nav links */
 header nav .nav-sections h2 {
-  margin: 0 0 12px;
+  margin: 8px 0 12px;
   font-size: 28px;
   font-weight: 700;
   line-height: 1.1;
   color: #000;
+}
+
+header nav .nav-sections ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0 0 16px;
+  list-style: none;
+  font-size: 16px;
 }
 
 header nav .nav-sections a:any-link {
@@ -328,19 +156,9 @@ header nav .nav-sections a:hover {
   text-decoration: underline;
 }
 
-/* tools: Subscribe + social links stacked, right-aligned */
-header nav .nav-tools a:any-link {
-  color: #4b4b4b;
-}
-
-header nav .nav-tools a:hover {
-  color: #000;
-  text-decoration: underline;
-}
-
+/* tools: Subscribe + social icons */
 header nav .nav-tools p {
   margin: 0 0 12px;
-  text-align: right;
 }
 
 header nav .nav-tools p a:any-link {
@@ -351,49 +169,15 @@ header nav .nav-tools p a:any-link {
   letter-spacing: 0.3px;
 }
 
-@media (width >= 900px) {
-  /* taller header, top-aligned so the logo lines up with the heading */
-  header nav {
-    align-items: start;
-    height: auto;
-    min-height: var(--nav-height);
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  header nav .nav-brand {
-    padding-top: 4px;
-  }
-
-  /* stack the heading above the nav links in the sections column */
-  header nav .nav-sections {
-    white-space: normal;
-  }
-
-  header nav .nav-sections .default-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-
-  header nav .nav-sections ul {
-    gap: 24px;
-    font-size: 16px;
-  }
-
-  header nav .nav-tools ul {
-    display: flex;
-    justify-content: flex-end;
-    gap: 14px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 13px;
-  }
+header nav .nav-tools ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0;
+  padding: 0 0 16px;
+  list-style: none;
 }
 
-/* social icons */
 header nav .nav-tools a.social-icon {
   display: inline-flex;
   align-items: center;
@@ -411,4 +195,66 @@ header nav .nav-tools a.social-icon svg {
   width: 18px;
   height: 18px;
   fill: currentcolor;
+}
+
+@media (width >= 900px) {
+  header .nav-wrapper {
+    position: relative;
+  }
+
+  header nav {
+    grid-template:
+      'corporate' auto
+      'lower' auto / 1fr;
+    max-width: 1200px;
+    padding: 0;
+  }
+
+  header nav .nav-hamburger {
+    display: none;
+    visibility: hidden;
+  }
+
+  /* corporate bar constrained + padded */
+  header nav .nav-corporate {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 32px;
+  }
+
+  /* lower band: hashed-lines tiled background spanning full width */
+  header nav .nav-lower {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'breadcrumb breadcrumb'
+      'sections tools';
+    column-gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 12px;
+    background-image: url('/images/hashed-lines.png');
+    background-repeat: repeat;
+  }
+
+  header nav .nav-breadcrumb {
+    grid-area: breadcrumb;
+  }
+
+  header nav .nav-sections {
+    grid-area: sections;
+  }
+
+  header nav .nav-tools {
+    grid-area: tools;
+    text-align: right;
+  }
+
+  header nav .nav-tools p {
+    text-align: right;
+  }
+
+  header nav .nav-tools ul {
+    justify-content: flex-end;
+  }
 }
