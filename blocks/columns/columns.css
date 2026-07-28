@@ -31,3 +31,59 @@
     order: unset;
   }
 }
+
+/* ===== 3M "Contact Media Relations" / "Email Alerts" variant ===== */
+.columns.contacts > div {
+  gap: 48px;
+}
+
+.columns.contacts > div > div {
+  border-top: 3px solid #000;
+  padding-top: 20px;
+}
+
+.columns.contacts h2 {
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+}
+
+.columns.contacts p {
+  margin: 0 0 16px;
+  color: #4b4b4b;
+}
+
+.columns.contacts a:not(.button) {
+  color: #03c;
+  text-decoration: none;
+}
+
+.columns.contacts a:not(.button):hover {
+  text-decoration: underline;
+}
+
+.columns.contacts a.button {
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 12px 32px;
+  background: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.columns.contacts a.button:hover {
+  background: #000;
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .columns.contacts > div {
+    align-items: start;
+  }
+}
