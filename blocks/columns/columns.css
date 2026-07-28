@@ -63,7 +63,9 @@
   text-decoration: underline;
 }
 
-.columns.contacts a.button {
+/* Email Alerts "Subscribe" — outlined button (2nd column, last paragraph) */
+.columns.contacts a.button,
+.columns.contacts > div > div:last-child > p:last-child > a:only-child {
   display: inline-block;
   border: 1px solid #000;
   border-radius: 0;
@@ -77,9 +79,11 @@
   text-decoration: none;
 }
 
-.columns.contacts a.button:hover {
+.columns.contacts a.button:hover,
+.columns.contacts > div > div:last-child > p:last-child > a:only-child:hover {
   background: #000;
   color: #fff;
+  text-decoration: none;
 }
 
 @media (width >= 900px) {
