@@ -4,6 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 header nav {
@@ -149,7 +150,7 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 90px;
   height: auto;
 }
 
@@ -269,4 +270,54 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+/* ===== 3M News Center theme ===== */
+header nav .nav-sections h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+header nav .nav-sections a:any-link {
+  color: #4b4b4b;
+}
+
+header nav .nav-sections a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* tools: social links as a horizontal row */
+header nav .nav-tools a:any-link {
+  color: #4b4b4b;
+}
+
+header nav .nav-tools a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  /* stack the heading above the nav links in the sections column */
+  header nav .nav-sections {
+    white-space: normal;
+  }
+
+  header nav .nav-sections .default-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  header nav .nav-tools ul {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+  }
 }

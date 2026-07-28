@@ -1,0 +1,21 @@
+/* Brand tokens extracted from news.3m.com (3M News Center) */
+:root {
+  /* fonts — "3MCircular" is a proprietary 3M face; fall back to Arial/Helvetica system stack */
+  --body-font-family: "3M Circular", arial, "Helvetica Neue", helvetica, sans-serif;
+  --heading-font-family: "3M Circular", arial, "Helvetica Neue", helvetica, sans-serif;
+
+  /* colors */
+  --background-color: #fff;
+  --text-color: #4b4b4b;
+  --heading-color: #000;
+  --link-color: #03c;
+  --link-hover-color: #03c;
+  --light-color: #f2f2f2;
+  --dark-color: #333;
+
+  /* content width */
+  --content-max-width: 1280px;
+
+  /* nav height */
+  --nav-height: 64px;
+}
