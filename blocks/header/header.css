@@ -7,6 +7,12 @@ header .nav-wrapper {
   border-bottom: 1px solid #f2f2f2;
 }
 
+/* utility bar (3M United States | 3M News Center | 3M Stories) — hidden on mobile, shown on desktop */
+header nav .nav-utility {
+  display: none;
+  visibility: hidden;
+}
+
 header nav {
   box-sizing: border-box;
   display: grid;
@@ -88,12 +94,6 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
-}
-
-/* utility bar (3M United States | 3M News Center | 3M Stories) — desktop only */
-header nav .nav-utility {
-  display: none;
-  visibility: hidden;
 }
 
 /* hamburger */
