@@ -241,6 +241,7 @@ header nav .nav-tools a.social-icon svg {
     padding: 0 32px 12px;
     background-image: url('/images/hashed-lines.png');
     background-repeat: repeat;
+    background-size: 28px 28px;
   }
 
   header nav .nav-breadcrumb {
