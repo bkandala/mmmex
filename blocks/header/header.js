@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import decorateSocialIcons from '../../scripts/social-icons.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -136,6 +137,9 @@ export default async function decorate(block) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
+
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) decorateSocialIcons(navTools.querySelector('ul') || navTools);
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {

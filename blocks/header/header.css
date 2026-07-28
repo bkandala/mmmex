@@ -355,3 +355,23 @@ header nav .nav-tools p a:any-link {
     font-size: 13px;
   }
 }
+
+/* social icons */
+header nav .nav-tools a.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #4b4b4b;
+}
+
+header nav .nav-tools a.social-icon:hover {
+  color: #000;
+}
+
+header nav .nav-tools a.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentcolor;
+}

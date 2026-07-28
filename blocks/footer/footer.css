@@ -75,6 +75,26 @@ footer .footer > div:last-child p:last-child {
   color: #767676;
 }
 
+/* social icons */
+footer .footer a.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #767676;
+}
+
+footer .footer a.social-icon:hover {
+  color: #000;
+}
+
+footer .footer a.social-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentcolor;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 32px;

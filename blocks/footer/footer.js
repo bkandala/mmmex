@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import decorateSocialIcons from '../../scripts/social-icons.js';
 
 /**
  * loads and decorates the footer
@@ -15,6 +16,10 @@ export default async function decorate(block) {
   block.textContent = '';
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+
+  // convert the "Follow Us" social list into SVG icons
+  const socialList = footer.querySelector('ul');
+  if (socialList) decorateSocialIcons(socialList);
 
   block.append(footer);
 }
