@@ -274,14 +274,16 @@ header nav .nav-tools {
 
 /* ===== 3M News Center theme ===== */
 header nav .nav-sections h2 {
-  margin: 0 0 4px;
-  font-size: 22px;
+  margin: 0 0 12px;
+  font-size: 28px;
   font-weight: 700;
+  line-height: 1.1;
   color: #000;
 }
 
 header nav .nav-sections a:any-link {
   color: #4b4b4b;
+  font-weight: 400;
 }
 
 header nav .nav-sections a:hover {
@@ -289,7 +291,7 @@ header nav .nav-sections a:hover {
   text-decoration: underline;
 }
 
-/* tools: social links as a horizontal row */
+/* tools: Subscribe + social links stacked, right-aligned */
 header nav .nav-tools a:any-link {
   color: #4b4b4b;
 }
@@ -299,7 +301,33 @@ header nav .nav-tools a:hover {
   text-decoration: underline;
 }
 
+header nav .nav-tools p {
+  margin: 0 0 12px;
+  text-align: right;
+}
+
+header nav .nav-tools p a:any-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
 @media (width >= 900px) {
+  /* taller header, top-aligned so the logo lines up with the heading */
+  header nav {
+    align-items: start;
+    height: auto;
+    min-height: var(--nav-height);
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  header nav .nav-brand {
+    padding-top: 4px;
+  }
+
   /* stack the heading above the nav links in the sections column */
   header nav .nav-sections {
     white-space: normal;
@@ -309,12 +337,18 @@ header nav .nav-tools a:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 0;
+  }
+
+  header nav .nav-sections ul {
+    gap: 24px;
+    font-size: 16px;
   }
 
   header nav .nav-tools ul {
     display: flex;
-    gap: 16px;
+    justify-content: flex-end;
+    gap: 14px;
     margin: 0;
     padding: 0;
     list-style: none;
