@@ -47,8 +47,8 @@ header nav .nav-corporate .default-content-wrapper {
 }
 
 header nav .nav-corporate .nav-logo img {
-  width: 90px;
-  height: auto;
+  width: auto;
+  height: 40px;
   display: block;
 }
 
